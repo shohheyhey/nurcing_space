@@ -1,0 +1,53 @@
+<nav></nav>
+<main>
+<div class="edit_contents" style="width:100%; height:100%; background-color:#FFF; padding:100px;">
+    <div style="width:50%; height:100%; margin:0 auto;">
+      <%= form_for @user, url: customer_path, method: :patch do |f|%>
+      <h1>お客様情報の編集</h1>
+        <div class="form-group">
+          <label for="exampleFormControlFile1">写真の変更</label>
+          <%= f.file_field :image, class:"form-control-file"%>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">名前の変更</label>
+          <%= f.text_field :name, placeholder: "名前を変更する", class:"form-control", style: "height:100px;"%>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">生年月日</label>
+  　        <%= f.date_select :birth, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)%>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">介護度</label>
+          <%= f.select :kaigodo, [["1",1], ["2",2], ["3", 3], ["4", 4], ["5", 5]], {prompt: false}, style: "width:100%; height:100px;" %>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">所属</label>
+          <%= f.collection_select :category_id, Category.all, :id, :name, {}, class: "form_select" %>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">利用するサービス</label>
+            <%= f.collection_check_boxes :service_id,  Service.all, :id, :name,{include_hidden: false, checked: @user.services.map(&:id)}  do |service|%>
+            
+            <p style="font-size:1rem;">
+            <%= service.label{service.check_box + service.text}%>
+            </p>
+            <% end %>
+         </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">住所</label>
+          <%= f.text_field :addres, placeholder: "住所を入力してください", class: "form-control", style: "height:100px;"%>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">既往歴</label>
+          <%= f.text_area :kioreki, placeholder: "既往歴を入力してください", class: "form-control", style: "height:200px;"%>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">本人の特徴</label>
+          <%= f.text_area :description, placeholder: "本人の特徴を入力してください", class: "form-control", style: "height:200px;"%>
+        </div>
+        <%= f.submit "変更する", class:"btn btn-danger btn-lg btn-block"%>
+       <% end %>
+    </div>
+</div>
+</main>
+<aside></aside>

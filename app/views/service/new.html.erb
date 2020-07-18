@@ -1,0 +1,26 @@
+<nav></nav>
+<main>
+    <h1>新しいサービスを追加</h1>
+
+    <div class="contents">
+        <div class="edit_form">
+          <%= form_for @service, url: service_index_path do |f| %>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">サービス名</label>
+              <%= f.text_field :name, placeholder: "サービス名を入れてください。", class: "form-control form_elements" %>
+            </div>
+            <div class="form-group">
+              <p for="exampleFormControlSelect1">カテゴリー</p>
+              <%= f.collection_select :category_id, Category.all, :id, :name, {}, class: "form_select" %>
+              
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">単価</label>
+              <%= f.number_field :price, placeholder: "サービスの単価を入力してください", class: "form-control form_elements"%>
+            </div>
+            <%= f.submit "登録する", class: "btn btn-danger btn-lg btn-block ", style: "width:25%; margin:0 auto;"%>
+          <% end %>
+        </div>
+    </div>
+</main>
+<aside></aside>

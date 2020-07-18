@@ -1,0 +1,104 @@
+<nav></nav>
+<main>
+    <%= debug session[:office_id] %>
+<div class="show_contents" style="width:100%; height:100%; background-color:#FFF; padding:100px;">
+
+    <div class="card mb-3" style="width: 1200px; margin:0 auto; border:none;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <div style="height:350px; width:350px; background:url('<%=image_url(@user)%>'); background-position:50%; background-size:cover;"></div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="card-title" style="text-align:center;"><%= @user.name%>様</h2>
+                <div class="card-body" style="height: 100%;">
+                    <div>
+                        <%= link_to edit_customer_path do%>
+                            <input type="submit" value="情報を編集する" class="btn btn-outline-success btn-lg btn-block" style="font-size:36px; margin-bottom:2rem;">
+                        <% end %>
+                        <%= link_to claim_customer_path(@user.id) do %>
+                            <input type="submit" value="請求業務を行う" class="btn btn-outline-warning btn-lg btn-block" style="font-size:36px; margin-bottom:2rem;">
+                        <% end %>
+                        <%= link_to delete_customer_path(@user) do%>
+                            <input type="submit" value="お客様情報を削除する" class="btn btn-outline-secondary btn-lg btn-block" style="font-size:36px; margin-top:0;">
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="customer_info">
+            <table style="margin:0 auto; table-layout:fixed;">
+                <tr>
+                    <td style="width:30%;">
+                        年齢
+                    </td>
+                    <td>
+                        <%= age(@user)%>歳
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        生年月日
+                    </td>
+                    <td>
+                        <%= @user.birth%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        住所
+                    </td>
+                    <td>
+                        <%= @user.adress%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        介護度
+                    </td>
+                    <td>
+                        <%= @user.kaigodo%>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        既往歴
+                    </td>
+                    <td>
+                        <%= simple_format(@user.kioreki)%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        服薬
+                    </td>
+                    <td>
+                        〇〇
+                    </td>
+                </tr>
+                <tr>
+                    <td valign = "top">
+                        利用中のサービス
+                    </td>
+                    <td valign = "top">
+                       <% @user.services.each do |s| %>
+                         <p>
+                            <%= s.name%>(<%= s.price%>円)
+                         </p>
+                       <% end %>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" style="height:500px;">
+                        特徴
+                    </td>
+                    <td valign="top">
+                        <%= simple_format(@user.description)%>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </div>
+</div>
+</main>
+<aside></aside>

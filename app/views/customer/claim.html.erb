@@ -1,0 +1,46 @@
+<nav></nav>
+<main>
+
+    <div class="claim_contents">
+        
+        <h2 class="card-title" style="text-align:center;"><%= @user.name%>様</h2>
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <div style="height:350px; width:350px; background:url('<%=image_url(@user)%>'); background-position:50%; background-size:cover;"></div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body" style="height: 100%;">
+                        <div>
+                            <form action="#" name="form">
+                                <table style="width:100%;">
+                                <tr>
+                                    <th>商品名</th>
+                                    <th>単価</th>
+                                    <th>数量</th>
+                                    <th>金額</th>
+                                </tr>
+                                <% @user.services.each do |s| %>
+                                <tr>
+                                    <td><%= s.name %></td>
+                                    <td align="right"><%= s.price%></div>円</td>
+                                    <td><input type="text" name="goods" price="<%= s.price %>" sid="<%= s.id %>" class="keisan_test" >
+                                        
+                                    </td>
+                                    <td><input class='subtotal' type="text" id='subtotal_<%= s.id %>' sid="<%= s.id %>" name="field" size="8" value="0"> 円</td>
+                                </tr>
+                                <% end %>
+                                <tr>
+                                    <td align="right" colspan="3"><strong>合計</strong></td>
+                                    <td><input type="text" name="field_total" size="8" value="0"> 円</td>
+                                </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</main>
+<aside></aside>

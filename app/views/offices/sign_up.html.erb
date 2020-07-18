@@ -1,0 +1,45 @@
+<nav>
+  
+</nav>
+<main>
+  <div class="sign_up_contents">
+    <h1 style="font-size:8rem; color:#85E678; font-weight:700;">介護をもっと身近に</h1>
+      <div style="width:800px; background-color:#FFF; opacity:0.8; padding:50px; margin:0 auto; border:1px solid #85E678;">
+        <%= form_for @office, url: sign_up_path  do |f| %>
+            <h1 style="text-align:center;">事業所情報を登録</h1>
+            <div class="form-group">
+              <label for="exampleInputEmail1">事業所名</label>
+              <%= f.text_field :name, placeholder: "あなたの事業所名を入力してください", class: "form-control"%>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">メールアドレス</label>
+              <%= f.email_field :email, placeholder: "事業所のメールアドレスを入力してください", class: "form-control"%>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">電話番号</label>
+              <%= f.telephone_field :tell, placeholder: "事業所の電話番号を登録してください", class: "form-control"%>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">住所</label>
+              <%= f.text_field :adress, placeholder: "事業所の住所を入力してください", class: "form-control"%>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">パスワード</label>
+              <%= f.password_field :password, placeholder: "8文字以上のパスワードを入力してください。", class: "form-control"%>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">パスワード確認用</label>
+              <%= f.password_field :password_confirmation, placeholder: "パスワード確認用です。", class: "form-control"%>
+            </div>
+            <%= f.submit "登録する", class: "btn btn-danger btn-lg btn-block"%>
+            <p style="margin-top:30px; text-align:center;"> 登録済みの事業所様はこちらから</p>
+        <% end %>
+        <%= link_to sign_in_path do%>
+          <button class="btn btn-warning btn-lg btn-block">ログインする</button>
+        <% end %>
+      </div>
+  </div>
+</main>
+<aside>
+  
+</aside>

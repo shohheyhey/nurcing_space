@@ -1,0 +1,58 @@
+// Place all the styles related to the service controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.contents{
+    width:800px;
+    margin:0 auto;
+}
+h1{
+    text-align:center;
+}
+
+// サービスインデックス
+.service_index_contents{
+    width:800px;
+    margin:0 auto;
+    margin-top:50px;
+}
+
+.service_index_contents .btn{
+    padding:30px;
+    margin-bottom:50px;
+}
+.service_index_contents a:hover{
+    text-decoration:none;
+    
+}
+
+// 〇〇services
+.service_contents{
+    width:50%;
+    margin:0 auto;
+}
+table{
+    width:100%;
+    border: 1px solid #777;
+}
+table, th, td{
+    border: 1px solid #777;
+}
+table .initial_column{
+    width:60%;
+}
+
+// エディット
+.edit_form{
+    width:100%;
+}
+.form-group{
+    margin:2rem;
+}
+
+.form_elements{
+    padding:50px 0;
+}
+.form_select{
+    padding:50px 0;
+    width:100%;
+}

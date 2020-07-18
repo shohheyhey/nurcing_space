@@ -1,0 +1,86 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+/*全体*/
+body{
+    font-family:"Helvetica Neue""Hiragino Kaku Gothic ProN","Hiragino Sans", Meiryo, sans-serif;
+    position:relative;
+    min-height: 100vh;
+    /* width:1200px; */
+    
+    display: grid;
+    grid-template: 
+    "... .....  .....  .....  .....  .....  ..."
+    "... header header header header header ..." 300px
+    "... .....  .....  .....  .....  .....  ..." 10px
+    "... left   .....  center .....  right  ..." 1fr
+    "... .....  .....  .....  .....  .....  ..." 10px
+    "... footer footer footer footer footer ..." 200px
+    "... .....  ...... .....  .....   ..... ..."  
+    /auto 100px  10px  1fr   10px    100px  auto
+    ;
+}
+header{
+    grid-area: header;
+}
+nav{
+    grid-area:left;
+}
+main{
+    grid-area:center;
+}
+aside{
+    grid-area: right;
+}
+footer{
+    grid-area: footer;
+}
+
+.contents{
+    display:flex;
+    flex:1;
+}
+ul{
+    list-style: none;
+    display: flex;
+    width:80%;
+    margin:0 auto;
+    text-align: center;
+    font-size:3rem;
+    margin-top:2rem;
+    font-family: sans-serif;
+}
+header li{
+    flex:1;
+    border-right:1px solid #28A745;
+}
+a{
+    color: inherit;
+}
+.header_list a:hover{
+    color:#28A745;
+    font-weight: bold;
+    transition: 0.5s ;
+    text-decoration: none;
+}
+
+
+a{
+    text-decoration: none;
+}
+a :hover{
+    text-decoration: none;
+    
+}

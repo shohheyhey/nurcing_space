@@ -1,0 +1,34 @@
+<nav>
+  
+</nav>
+<main>
+<div class="index_contents" style="width:50%; height:100%;padding:30px; margin:0 auto; background-color:#FFF; border:1px solid #28A745;">
+    <h1 style="margin-bottom:50px; text-align:center; margin-top:50px;"><%= @office.name%>のお客様一覧</h1>
+    <%= link_to new_customer_path do %>
+      <button type="button" class="btn btn-danger btn-block" style="width:50%; margin:0 auto;">新しいお客様を追加する</button>
+    <% end %>
+    <% if @customers.any?%>
+      <div>
+        <% @customers.each do |user|%>
+        <div class="customer_wrapper" style=" width:50%; margin:0 auto;">
+            <div class="media" style="margin-bottom:50px;">
+              <div style= "height:100px; width:100px; background:url('<%=image_url(user)%>'); background-position:50%; background-size:cover;border-radius:50%;"></div>
+              <div class="media-body">
+                <p>
+                  <%= link_to customer_path(user.id) do %>
+                    <div style=" font-size:3rem; margin-left:2rem;"><%=user.name%></div>
+                  <% end %>
+                  </p>
+              </div>
+            </div>
+        </div>
+        <% end %>
+      </div>
+      <% else %>
+      <p>登録しているお客様はいません</p>
+      <% end %>
+</div>
+</main>
+<aside>
+  
+</aside>

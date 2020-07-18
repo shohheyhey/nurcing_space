@@ -1,0 +1,17 @@
+<nav></nav>
+<main>
+    <h1>部署を選択</h1>
+    <div class="service_index_contents">
+        <%= link_to sm_services_service_path(current_office.id) do %>
+            <button type="button" class="btn btn-outline-primary btn-block ">小規模</button>
+        <% end %>
+        <%= link_to nd_services_service_path(current_office.id) do %>
+            <button type="button" class="btn btn-outline-secondary btn-block">寿デイ</button>
+        <% end %>
+        <%= link_to common_services_service_path(current_office.id) do %>
+            <button type="button" class="btn btn-outline-success btn-block">共通</button>
+        <% end %>
+    </div>
+    
+</main>
+<aside></aside>

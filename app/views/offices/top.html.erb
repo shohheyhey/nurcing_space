@@ -1,0 +1,23 @@
+<nav>
+    
+</nav>
+<main>
+<div class="top_wrapper">
+    
+    <div class="button_wrapper" style="border:solid 1px #28A745;">
+    <div>
+        
+    </div>
+        <h1></h1>
+        <%= link_to customers_list_office_path do %>
+            <button class="btn btn-outline-success btn-block" style="font-size:36px; padding:30px; border-radius:50px; margin-bottom:8rem;">お客様一覧</button>
+        <% end %>
+        <%= link_to claim_category_office_path(current_office.id) do %>
+            <input type="submit" value="サービス一覧" class="btn btn-outline-success btn-block" style="font-size:36px; padding:30px; border-radius:50px;">
+        <% end %>
+    </div>
+</div>
+</main>
+<aside>
+    
+</aside>
