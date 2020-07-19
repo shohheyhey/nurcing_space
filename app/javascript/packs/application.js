@@ -10,6 +10,7 @@ require("@rails/activestorage").start()
 require("channels")
 // import '../javascripts/keisan'
 console.log('test');
+console.log('test2')
 
 document.addEventListener("DOMContentLoaded",function(){
 
@@ -17,7 +18,6 @@ document.addEventListener("DOMContentLoaded",function(){
     for(var keisan_test of keisan_tests){
         keisan_test.onchange = 
         function keisan(){
-            console.log('test2')
             //var price = document.form.goods.selectedIndex * 100; // 単価
             var price = this.value * this.getAttribute('price');
             document.form.field.value = price; // 小計
@@ -40,11 +40,6 @@ document.addEventListener("DOMContentLoaded",function(){
         document.form.field_total.value=total;
     }
 });
-    
-
-
-
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
